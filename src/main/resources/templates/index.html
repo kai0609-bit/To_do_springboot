@@ -20,7 +20,11 @@
     <ul>
         <li th:each="task : ${tasks}" th:classappend="${task.isCompleted} ? 'completed'">
             <span class="task-status" th:text="${task.isCompleted} ? '✅' : '⬜'"></span>
-            <span class="task-title" th:text="${task.title}"></span>
+            <div style="flex:1">
+                <span class="task-title" th:text="${task.title}"></span>
+                <p class="task-description" th:text="${task.description}"></p>
+            </div>
+
 
             <form th:action="@{/toggle}" method="post">
                 <input type="hidden" name="id" th:value="${task.id}" />

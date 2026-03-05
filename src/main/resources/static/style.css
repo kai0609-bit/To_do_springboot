@@ -140,6 +140,13 @@ li.completed {
     font-size: 1.1rem;
 }
 
+.task-description {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 3px;
+    letter-spacing: 0.03em;
+}
+
 /* button */
 .btn-toggle, .btn-delete {
     border: 1px solid;
