@@ -1,19 +1,27 @@
-# ToDo Application
+# ToDo Web Application
 
 ## Overview
-This is Web Application for making list of everyday tasks
+This is a web-based ToDo application built with Spring Boot.
 
 ## Features
-- See all tasks that you are currently having.
-- Add new task into list.
-- delete the task you want. 
-- you can change task status to "completed" or "not completed".
+- View all current tasks
+- Add new tasks with title and description
+- Delete tasks
+- Toggle task status between completed and not completed
+- Data persistence using H2 database
 
-## How to run
-You can run this application in your browser.
+## Requirements
+- Java 21
+
+## How to Run
+```bash
+.\mvnw.cmd spring-boot:run
+```
+Access the app at `http://localhost:8080`
 
 ## What I learned
-- **Springboot**: I learned how to set environment in springboot.
-
-
- 
+- **Spring Boot**: Setting up a web application with Spring Boot including Controllers, Services, and Repositories.
+- **MVC Architecture**: Separating responsibilities between Controller, Service, and Entity layers.
+- **Thymeleaf**: Building dynamic HTML pages connected to backend data.
+- **JPA / H2 Database**: Persisting data using Spring Data JPA with H2 database.
+- **CSS**: Styling a web application with a dark theme using CSS variables.
