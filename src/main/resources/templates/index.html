@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Todo App</title>
+    <title>ToDo App</title>
 </head>
 <body>
-    <h1>Todo App</h1>
-    <p>Hello World!</p>
+    <h1>ToDo App</h1>
+
+    <!-- The form for adding a task -->
+    <form th:action="@{/add}" method="post">
+        <input type="text" name="title" placeholder="Title" required />
+        <input type="text" name="description" placeholder="Description" />
+        <button type="submit">Add</button>
+    </form>
+
+    <!-- all tasks -->
+    <ul>
+        <li th:each="task : ${tasks}">
+            <span th:text="${task.title}"></span>
+            <span th:text="${task.isCompleted} ? '✅' : '⬜'"></span>
+
+            <!-- Toggle isCompleted -->
+            <form th:action="@{/toggle}" method="post" style="display:inline">
+                <input type="hidden" name="id" th:value="${task.id}" />
+                <button type="submit">Toggle</button>
+            </form>
+
+            <!-- remove -->
+            <form th:action="@{/remove}" method="post" style="display:inline">
+                <input type="hidden" name="id" th:value="${task.id}" />
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </ul>
 </body>
 </html>
