@@ -7,6 +7,7 @@ This is a web-based ToDo application built with Spring Boot.
 - View all current tasks
 - Add new tasks with title and description
 - Delete tasks
+- Edit task
 - Toggle task status between completed and not completed
 - Data persistence using H2 database
 
