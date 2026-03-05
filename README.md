@@ -11,6 +11,9 @@ This is a web-based ToDo application built with Spring Boot.
 - Toggle task status between completed and not completed
 - Data persistence using H2 database
 
+## Screenshot
+![ToDo App](docs/screenshot.png)
+
 ## Requirements
 - Java 21
 
