@@ -2,35 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>ToDo App</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
-    <h1>ToDo App</h1>
+<div class="container">
+    <h1>// ToDo App</h1>
+    <p class="subtitle">[ TASK MANAGER v1.0 ]</p>
 
-    <!-- The form for adding a task -->
-    <form th:action="@{/add}" method="post">
-        <input type="text" name="title" placeholder="Title" required />
-        <input type="text" name="description" placeholder="Description" />
-        <button type="submit">Add</button>
-    </form>
+    <div class="add-form">
+        <form th:action="@{/add}" method="post">
+            <input type="text" name="title" placeholder="TASK TITLE" required />
+            <input type="text" name="description" placeholder="DESCRIPTION" />
+            <button type="submit" class="btn-add">+ Add Task</button>
+        </form>
+    </div>
 
-    <!-- all tasks -->
     <ul>
-        <li th:each="task : ${tasks}">
-            <span th:text="${task.title}"></span>
-            <span th:text="${task.isCompleted} ? '✅' : '⬜'"></span>
+        <li th:each="task : ${tasks}" th:classappend="${task.isCompleted} ? 'completed'">
+            <span class="task-status" th:text="${task.isCompleted} ? '✅' : '⬜'"></span>
+            <span class="task-title" th:text="${task.title}"></span>
 
-            <!-- Toggle isCompleted -->
-            <form th:action="@{/toggle}" method="post" style="display:inline">
+            <form th:action="@{/toggle}" method="post">
                 <input type="hidden" name="id" th:value="${task.id}" />
-                <button type="submit">Toggle</button>
+                <button type="submit" class="btn-toggle">Toggle</button>
             </form>
 
-            <!-- remove -->
-            <form th:action="@{/remove}" method="post" style="display:inline">
+            <form th:action="@{/remove}" method="post">
                 <input type="hidden" name="id" th:value="${task.id}" />
-                <button type="submit">Delete</button>
+                <button type="submit" class="btn-delete">Delete</button>
             </form>
         </li>
     </ul>
+</div>
 </body>
 </html>
