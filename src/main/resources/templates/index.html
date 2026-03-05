@@ -23,6 +23,13 @@
             <div style="flex:1">
                 <span class="task-title" th:text="${task.title}"></span>
                 <p class="task-description" th:text="${task.description}"></p>
+
+                <form th:action="@{/edit}" method="post" style="margin-top:8px">
+                    <input type="hidden" name="id" th:value="${task.id}" />
+                    <input type="text" name="title" th:value="${task.title}" class="edit-input"/>
+                    <input type="text" name="description" th:value="${task.description}" class="edit-input"/>
+                    <button type="submit" class="btn-edit">Update</button>
+                    </form>
             </div>
 
 

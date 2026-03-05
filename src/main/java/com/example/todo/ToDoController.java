@@ -33,6 +33,12 @@ public class ToDoController {
         return "redirect:/";
     }
 
+    @PostMapping("/edit")
+    public String editTask(@RequestParam int id, @RequestParam String title, @RequestParam String description) {
+        toDoService.editTask(id, title, description);
+        return "redirect:/";
+    }
+
     @PostMapping("/toggle")
     public String toggleTask(@RequestParam int id) {
         toDoService.toggleTask(id);

@@ -25,6 +25,15 @@ public class ToDoService {
         toDoRepository.deleteById(id);
     }
 
+    public void editTask(int id, String newTitle, String newDescription) {
+        ToDoItem item = toDoRepository.findById(id).orElse(null);
+        if (item != null) {
+            item.setTitle(newTitle);
+            item.setDescription(newDescription);
+            toDoRepository.save(item);
+        }
+    }
+
     public void toggleTask(int id) {
         ToDoItem item = toDoRepository.findById(id).orElse(null);
         if (item != null) {
