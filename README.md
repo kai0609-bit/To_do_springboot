@@ -12,7 +12,7 @@ This is a web-based ToDo application built with Spring Boot.
 - Data persistence using H2 database
 
 ## Screenshot
-![ToDo App](docs/screenshot.png)
+![ToDo App](docs/image.png)
 
 ## Requirements
 - Java 21
