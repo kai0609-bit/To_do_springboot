@@ -22,9 +22,17 @@ https://to-do-springboot.onrender.com
 
 ## How to Run
 ```bash
+git clone https://github.com/kai0609-bit/...
+cd todo-app
 .\mvnw.cmd spring-boot:run
+# Access at http://localhost:8080
 ```
-Access the app at `http://localhost:8080`
+## Tech Stack
+- Java 21 / Spring Boot
+- Thymeleaf
+- Spring Data JPA / PostgreSQL
+- Docker
+- Deployed on Render
 
 ## What I learned
 - **Spring Boot**: Setting up a web application with Spring Boot including Controllers, Services, and Repositories.
