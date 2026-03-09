@@ -22,7 +22,7 @@ https://to-do-springboot.onrender.com
 
 ## How to Run
 ```bash
-git clone https://github.com/kai0609-bit/...
+git clone https://github.com/kai0609-bit/To_do_springboot.git
 cd todo-app
 .\mvnw.cmd spring-boot:run
 # Access at http://localhost:8080
