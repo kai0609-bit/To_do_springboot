@@ -22,31 +22,8 @@ jobs:
       - name: Build JAR
         run: ./mvnw clean package -DskipTests
 
-      - name: Deploy to Server
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cp ~/todo-0.0.1-SNAPSHOT.jar ~/todo-0.0.1-SNAPSHOT.jar.bak
-            sudo systemctl stop todo
-
-      - name: Transfer JAR
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "target/todo-0.0.1-SNAPSHOT.jar"
-          target: "~/"
-          strip_components: 1
+      - name: Copy JAR
+        run: cp target/todo-0.0.1-SNAPSHOT.jar ~/todo-0.0.1-SNAPSHOT.jar
 
       - name: Restart Service
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            sudo systemctl start todo
+        run: sudo systemctl restart todo
